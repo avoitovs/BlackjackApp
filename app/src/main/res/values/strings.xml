@@ -3,4 +3,14 @@
 
     <string name="dummy_button">Dummy Button</string>
     <string name="dummy_content">DUMMY\nCONTENT</string>
+
+    <string name="title_activity_want_to_learn">WantToLearn</string>
+
+    <string name="title_activity_settings">Settings</string>
+
+    <string name="title_activity_just_play">JustPlay</string>
+    <string name="want_to_learn">Want to learn</string>
+    <string name="just_play">Just play</string>
+    <string name="settings">Settings</string>
+    <string name="quit">Quit</string>
 </resources>

@@ -20,6 +20,21 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".WantToLearn"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="@string/title_activity_want_to_learn"
+            android:theme="@style/FullscreenTheme" />
+        <activity
+            android:name=".Settings"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="@string/title_activity_settings"
+            android:theme="@style/FullscreenTheme" />
+        <activity
+            android:name=".JustPlay"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="@string/title_activity_just_play"
+            android:theme="@style/FullscreenTheme"></activity>
     </application>
 
 </manifest>

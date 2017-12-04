@@ -1,20 +1,18 @@
 package com.example.antons.blackjackapp;
 
 import android.annotation.SuppressLint;
-import android.content.Intent;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.MotionEvent;
 import android.view.View;
-import android.widget.Button;
 
 /**
  * An example full-screen activity that shows and hides the system UI (i.e.
  * status bar and navigation/system bar) with user interaction.
  */
-public class MainMenu extends AppCompatActivity {
+public class Settings extends AppCompatActivity {
     /**
      * Whether or not the system UI should be auto-hidden after
      * {@link #AUTO_HIDE_DELAY_MILLIS} milliseconds.
@@ -25,13 +23,13 @@ public class MainMenu extends AppCompatActivity {
      * If {@link #AUTO_HIDE} is set, the number of milliseconds to wait after
      * user interaction before hiding the system UI.
      */
-    private static final int AUTO_HIDE_DELAY_MILLIS = 3000;
+    private static final int AUTO_HIDE_DELAY_MILLIS = 0;
 
     /**
      * Some older devices needs a small delay between UI widget updates
      * and a change of the status and navigation bar.
      */
-    private static final int UI_ANIMATION_DELAY = 300;
+    private static final int UI_ANIMATION_DELAY = 0;
     private final Handler mHideHandler = new Handler();
     private View mContentView;
     private final Runnable mHidePart2Runnable = new Runnable() {
@@ -89,7 +87,7 @@ public class MainMenu extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        setContentView(R.layout.activity_main_menu);
+        setContentView(R.layout.activity_settings);
 
         mVisible = true;
         mControlsView = findViewById(R.id.fullscreen_content_controls);
@@ -108,10 +106,6 @@ public class MainMenu extends AppCompatActivity {
         // operations to prevent the jarring behavior of controls going away
         // while interacting with the UI.
         findViewById(R.id.dummy_button).setOnTouchListener(mDelayHideTouchListener);
-        setOnclickListenerJustPlay();
-        setOnClickListenerQuit();
-        setOnclickListenerSettings();
-        setOnclickListenerWantToLearn();
     }
 
     @Override
@@ -166,61 +160,4 @@ public class MainMenu extends AppCompatActivity {
         mHideHandler.removeCallbacks(mHideRunnable);
         mHideHandler.postDelayed(mHideRunnable, delayMillis);
     }
-
-    private void setOnclickListenerWantToLearn(){
-
-        Button wantToLearn = findViewById(R.id.want_to_learn_button);
-        wantToLearn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent openWantToLearn = new Intent(MainMenu.this,WantToLearn.class);
-                startActivity(openWantToLearn);
-            }
-        });
-
-
-    }
-    private void setOnclickListenerJustPlay(){
-
-        Button justPlayButton = findViewById(R.id.just_play_button);
-        justPlayButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent openJustPlay = new Intent(MainMenu.this,JustPlay.class);
-                startActivity(openJustPlay);
-            }
-        });
-
-
-    }
-
-    private void setOnclickListenerSettings(){
-
-        Button settingsButton = findViewById(R.id.settings_button);
-        settingsButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent openSettings = new Intent(MainMenu.this,Settings.class);
-                startActivity(openSettings);
-            }
-        });
-
-
-    }
-
-    private void setOnClickListenerQuit(){
-
-        Button quitButton = findViewById(R.id.quit_button);
-        quitButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                finish();
-            }
-        });
-
-    }
-
-
-
-
 }
