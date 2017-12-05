@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".MainMenu"
+            android:name=".UI.MainMenu"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:label="@string/app_name"
             android:theme="@style/FullscreenTheme">
@@ -20,6 +20,21 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".UI.WantToLearn"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="@string/title_activity_want_to_learn"
+            android:theme="@style/FullscreenTheme" />
+        <activity
+            android:name=".UI.Settings"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="@string/title_activity_settings"
+            android:theme="@style/FullscreenTheme" />
+        <activity
+            android:name=".UI.JustPlay"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="@string/title_activity_just_play"
+            android:theme="@style/FullscreenTheme"></activity>
     </application>
 
 </manifest>
