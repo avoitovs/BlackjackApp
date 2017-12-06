@@ -12,8 +12,10 @@ public class Shoe {
 
     private List<Deck> shoe = new ArrayList<>();
     private int amountOfDecksInShoe;
+    private int numberOfPlayedCards;
+    public boolean isShoeActive = true;
 
-    public Shoe(int amountOfDecksInShoe) {
+    public Shoe (int amountOfDecksInShoe) {
         this.amountOfDecksInShoe = amountOfDecksInShoe;
         fillShoe();
     }
@@ -27,6 +29,29 @@ public class Shoe {
         }
 
     }
+
+    // this method is intended to get random card from shoe
+    private Card getRandomCard (){
+
+        int randomDeck = (int) (Math.random() * amountOfDecksInShoe); //get random deck number
+        int randomCard = (int) (Math.random() * 52); // get random card number
+
+        Card card = shoe.get(randomDeck).getCards().get(randomCard);
+        //Check if card still in shoe
+        if (!card.isInShoe()){
+            getRandomCard();
+        }
+        //Change card status of persistence in shoe
+        card.setInShoe(false);
+        numberOfPlayedCards++;
+
+        if (numberOfPlayedCards>= amountOfDecksInShoe*26){
+            isShoeActive = false;
+        }
+
+        return card;
+    }
+
 
 
 
