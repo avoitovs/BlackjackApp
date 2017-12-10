@@ -1,7 +1,7 @@
-package com.example.antons.blackjackapp.UI.BackEnd.Cards;
+package com.example.antons.blackjackapp.BackEnd.Cards;
 
 /**
- * Created by antons on 05/12/2017.
+ * Card object
  */
 
 public class Card {
@@ -18,11 +18,15 @@ public class Card {
     // Suit of the card (example: Hearts, Diamonds, Spades, Clubs)
     private String suit;
 
-    public Card(String value, int score, boolean inShoe, String suit) {
+    // Picture recourse ID
+    private int pictureResourceID;
+
+    public Card(String value, int score, boolean inShoe, String suit /*,int pictureResourceID*/) {
         this.value = value;
         this.score = score;
         this.inShoe = inShoe;
         this.suit = suit;
+       // this.pictureResourceID = pictureResourceID;
     }
 
     public String getValue() {
@@ -47,5 +51,13 @@ public class Card {
 
     public void setSuit(String suit) {
         this.suit = suit;
+    }
+
+    public String getSuit() {
+        return suit;
+    }
+
+    public int getPictureResourceID() {
+        return pictureResourceID;
     }
 }

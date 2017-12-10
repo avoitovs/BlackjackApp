@@ -1,11 +1,13 @@
-package com.example.antons.blackjackapp.UI.BackEnd.Cards;
+package com.example.antons.blackjackapp.BackEnd.Cards;
 
+
+import android.util.Log;
 
 import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by antons on 05/12/2017.
+ *  Shoe object
  */
 
 public class Shoe {
@@ -20,7 +22,9 @@ public class Shoe {
         fillShoe();
     }
 
+    // Fill shoe with deck of cards
     private void fillShoe (){
+        Log.v("Shoe","Filling shoe with decks");
 
         for (int i =0;i<amountOfDecksInShoe;i++){
 
@@ -31,7 +35,9 @@ public class Shoe {
     }
 
     // this method is intended to get random card from shoe
-    private Card getRandomCard (){
+    public Card getRandomCard (){
+
+        Log.v("Shoe","Getting random card");
 
         int randomDeck = (int) (Math.random() * amountOfDecksInShoe); //get random deck number
         int randomCard = (int) (Math.random() * 52); // get random card number
@@ -42,10 +48,12 @@ public class Shoe {
             getRandomCard();
         }
         //Change card status of persistence in shoe
+        Log.v("Shoe", "Checking if card already played");
         card.setInShoe(false);
         numberOfPlayedCards++;
 
         if (numberOfPlayedCards>= amountOfDecksInShoe*26){
+            Log.v("Shoe", "Shoe ended. Setting shoe status to nonActive");
             isShoeActive = false;
         }
 

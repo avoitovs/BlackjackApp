@@ -1,10 +1,12 @@
-package com.example.antons.blackjackapp.UI.BackEnd.Cards;
+package com.example.antons.blackjackapp.BackEnd.Cards;
+
+import android.util.Log;
 
 import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by antons on 05/12/2017.
+ * Deck object
  */
 
 public class Deck {
@@ -20,6 +22,8 @@ public class Deck {
     }
 
     private void fillDeckWithCards (){
+
+        Log.v("Deck", "creating deck");
 
         cards = new ArrayList<>();
 
