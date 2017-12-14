@@ -11,10 +11,10 @@ import java.util.List;
 public class SplitHand {
 
     private int totalScore;
-    private List<Card> seatsCards;
+    private List<Card> handsCards;
 
-    public SplitHand(List<Card> seatsCards) {
-        this.seatsCards = seatsCards;
+    public SplitHand(List<Card> handsCards) {
+        this.handsCards = handsCards;
     }
 
     public int getTotalScore() {
@@ -25,11 +25,11 @@ public class SplitHand {
         this.totalScore = totalScore;
     }
 
-    public List<Card> getSeatsCards() {
-        return seatsCards;
+    public List<Card> getHandsCards() {
+        return handsCards;
     }
 
-    public void setSeatsCards(List<Card> seatsCards) {
-        this.seatsCards = seatsCards;
+    public void setHandsCards(List<Card> handsCards) {
+        this.handsCards = handsCards;
     }
 }
