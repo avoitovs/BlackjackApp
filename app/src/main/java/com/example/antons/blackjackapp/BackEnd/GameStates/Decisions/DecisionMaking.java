@@ -3,6 +3,7 @@ package com.example.antons.blackjackapp.BackEnd.GameStates.Decisions;
 import android.util.Log;
 
 import com.example.antons.blackjackapp.BackEnd.Cards.Card;
+import com.example.antons.blackjackapp.BackEnd.CoreFunctions;
 import com.example.antons.blackjackapp.BackEnd.GameSession;
 import com.example.antons.blackjackapp.BackEnd.Seat;
 import com.example.antons.blackjackapp.BackEnd.SplitHand;
@@ -19,27 +20,35 @@ public class DecisionMaking {
 
 
     // Implementation of HIT
-    public void hit (Seat seat, GameSession gameSession){
+    public static void hit (Seat seat, GameSession gameSession){
         Log.v("Decision making", "HIT");
         seat.getSeatsCards().add(gameSession.shoe.getRandomCard());
+
+        // Update total score
+        seat.setTotalScore(CoreFunctions.ScoreUpdate(seat.getSeatsCards()));
     }
 
     // Implementation of DOUBLE DOWN
-    public void doubleDown (Seat seat, GameSession gameSession){
+    public static void doubleDown (Seat seat, GameSession gameSession){
 
         Log.v("Decision making", "Double down");
         seat.getSeatsCards().add(gameSession.shoe.getRandomCard());
         seat.setDoubleDownOnSeat(true);
+
         // update player's balance
         Log.v("Double down", "updating player's balance");
         seat.player.setBalance(seat.player.getBalance()-seat.getTotalBetOnSeat());
+
         // update seat's total bet
         Log.v("Double down", "updating seat's total bet");
         seat.setTotalBetOnSeat(seat.getTotalBetOnSeat()*2);
 
+        // update total score
+        seat.setTotalScore(CoreFunctions.ScoreUpdate(seat.getSeatsCards()));
+
     }
 
-    public void split (GameSession gameSession, Seat seat){
+    public static void split (GameSession gameSession, Seat seat){
 
         Log.v("Decision making", "Split");
         seat.setSplitOnSeat(true);
@@ -54,20 +63,29 @@ public class DecisionMaking {
 
         //Create hand one and deal card
         List<Card> cardsHandOne = new ArrayList<>();
+
         cardsHandOne.add(seat.getSeatsCards().get(0));
         cardsHandOne.add(gameSession.shoe.getRandomCard());
+
         SplitHand handOne = new SplitHand(cardsHandOne);
+        // update score for hand one
+        handOne.setTotalScore(CoreFunctions.ScoreUpdate(cardsHandOne));
 
         //Create hand two and deal card
         List<Card> cardsHandTwo = new ArrayList<>();
+
         cardsHandTwo.add(seat.getSeatsCards().get(1));
         cardsHandTwo.add(gameSession.shoe.getRandomCard());
+
         SplitHand handTwo = new SplitHand(cardsHandTwo);
+        handTwo.setTotalScore(CoreFunctions.ScoreUpdate(cardsHandTwo));
 
         //Split hand object creation and add to seat
         List<SplitHand> splitHands = new ArrayList<>();
+
         splitHands.add(handOne);
         splitHands.add(handTwo);
+
         seat.setSplitHands(splitHands);
 
     }

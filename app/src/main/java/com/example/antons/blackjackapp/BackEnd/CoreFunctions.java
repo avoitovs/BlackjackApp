@@ -11,22 +11,19 @@ import java.util.List;
  */
 
 public class CoreFunctions {
-    public int ScoreUpdate (List<Card> cards)
-    {
+
+
+    public static int ScoreUpdate(List<Card> cards) {
         int score = 0;
         boolean softHand = false;
 
-        for (Card card:cards) { //check each card from card list (from seat)
+        for (Card card : cards) { //check each card from card list (from seat)
             if (card.getScore() != 11) { //next card is not ACE (11)
                 score = score + card.getScore();
 
-                if (softHand & score > 21){
+                if (softHand & score > 21) {
                     score = score - 10;
                     softHand = false;
-                }
-                if (score > 21){
-                    // score = 9999
-                    // return too many
                 }
 
             }
@@ -34,15 +31,14 @@ public class CoreFunctions {
                 if (score + 11 <= 21) { // Case ACE makes hand soft (as common score less than 22 )
                     softHand = true;
                     score = score + 11;
-                }
-                if (softHand){
-                      score = score + 1;
+                } else {
+                    score = score + 1;
                 }
             }
-                }
-        return score;
-            }
-
         }
+        return score;
+    }
+
+}
 
 

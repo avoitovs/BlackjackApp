@@ -7,6 +7,8 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.example.antons.blackjackapp.BackEnd.Cards.Card;
+import com.example.antons.blackjackapp.BackEnd.CoreFunctions;
+import com.example.antons.blackjackapp.BackEnd.GameStates.Decisions.DecisionMaking;
 import com.example.antons.blackjackapp.R;
 import com.example.antons.blackjackapp.BackEnd.GameSession;
 
@@ -32,20 +34,16 @@ public class JustPlay extends AppCompatActivity {
 
         // Bet placement
         final Button placeFiveEur = findViewById(R.id.bet_5_eur);
-        placeFiveEur.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
+        placeFiveEur.setOnClickListener((View view) ->{
                 gameSession.round.betPlacement();
 
-            }
         });
 
 
         // Start round
         final Button play =  findViewById(R.id.play);
-        play.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
+        play.setOnClickListener((View view) ->{
+
                 gameSession.round.dealInitialCards();
                 play.setVisibility(View.INVISIBLE);
                 placeFiveEur.setVisibility(View.INVISIBLE);
@@ -55,8 +53,12 @@ public class JustPlay extends AppCompatActivity {
                 TextView playersCards = findViewById(R.id.players_cards);
                 playersCards.setText(printPlayersCards(gameSession));
 
-            }
         });
+
+        // Hit
+
+
+        // Stand
 
 
 

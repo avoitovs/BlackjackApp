@@ -3,6 +3,7 @@ package com.example.antons.blackjackapp.BackEnd.GameStates;
 import android.util.Log;
 
 import com.example.antons.blackjackapp.BackEnd.Cards.Card;
+import com.example.antons.blackjackapp.BackEnd.CoreFunctions;
 import com.example.antons.blackjackapp.BackEnd.GameSession;
 import com.example.antons.blackjackapp.BackEnd.Participants.Dealer;
 import com.example.antons.blackjackapp.BackEnd.Participants.Player;
@@ -48,15 +49,17 @@ public class DealInitialCardsHelper {
     // Implementation of dealing initial cards for player
     private void dealInitialCardsPlayer (Seat seat){
         List<Card> playersInitialCards = new ArrayList<>();
+
         Card firstCard = gameSession.shoe.getRandomCard();
         playersInitialCards.add(firstCard);
+
         Card secondCard = gameSession.shoe.getRandomCard();
         playersInitialCards.add(secondCard);
+
         seat.setSeatsCards(playersInitialCards);
-        Log.i("Player's cards: ", seat.getSeatsCards().get(0).getValue() + " "+
-                                             seat.getSeatsCards().get(0).getSuit() + " / "+
-                                             seat.getSeatsCards().get(1).getValue() + " "+
-                                             seat.getSeatsCards().get(1).getSuit() + " ");
+        seat.setTotalScore(CoreFunctions.ScoreUpdate(playersInitialCards));
+
+
         blackJackValidation(seat);
 
     }
@@ -64,9 +67,14 @@ public class DealInitialCardsHelper {
     // Implementation of dealing initial cards for dealer
     private void dealInitialCardsDealer (){
         List<Card> dealerInitialCards = new ArrayList<>();
+
         Card firstCard = gameSession.shoe.getRandomCard();
         dealerInitialCards.add(firstCard);
+
         dealer.setDealersCards(dealerInitialCards);
+        dealer.setScore(CoreFunctions.ScoreUpdate(dealerInitialCards));
+
+        //offer insurance if applicable
         offerInsurance();
 
     }
@@ -83,7 +91,11 @@ public class DealInitialCardsHelper {
 
 // Insurance validation and offer
     private void offerInsurance (){
-        //Logic
+        if (dealer.getScore()==11){
+
+            //logic
+
+        }
     }
 
 }
