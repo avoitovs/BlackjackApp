@@ -13,7 +13,7 @@ import java.util.List;
 public class CoreFunctions {
 
 
-    public static int ScoreUpdate(List<Card> cards) {
+    public static int scoreUpdate(List<Card> cards) {
         int score = 0;
         boolean softHand = false;
 

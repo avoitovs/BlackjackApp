@@ -28,6 +28,17 @@ public class DecisionMaking {
         seat.setTotalScore(CoreFunctions.ScoreUpdate(seat.getSeatsCards()));
     }
 
+    //Implementation of HIT for split hand
+    public static void hitForSplit (Splithand hand, GameSession gameSession){
+        Log.v("Decision making", "HIT for Split");
+
+        hand.getHandsCards().add(gameSession.shoe.getRandomeCard());
+
+        //Update total score, put list of cards to scoreUpdate methot
+        hand.setTotalScore(CoreFunctions.ScoreUpdate(hand.getHandsCards()));
+
+    }
+
     // Implementation of DOUBLE DOWN
     public static void doubleDown (Seat seat, GameSession gameSession){
 

@@ -9,8 +9,6 @@ import com.example.antons.blackjackapp.BackEnd.Seat;
 
 public class DecisionController {
 
-
-
     private void gameplayControler (Player player){
 
         for (Seat seat:player.getPlayersSeats()) {
@@ -21,30 +19,7 @@ public class DecisionController {
 
 
             }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
         }
-
-
-
-
-
-
-
-
-
     }
 
     // check if first two cards are equal in value (example: QUEEN QUEEN, ACE ACE, etc.)
@@ -57,22 +32,6 @@ public class DecisionController {
     private boolean playerHasOnlyTwoCards(Seat seat) {
         return (seat.getSeatsCards().size() == 2);
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 }
