@@ -25,18 +25,16 @@ public class DecisionMaking {
         seat.getSeatsCards().add(gameSession.shoe.getRandomCard());
 
         // Update total score
-        seat.setTotalScore(CoreFunctions.ScoreUpdate(seat.getSeatsCards()));
+        seat.setTotalScore(CoreFunctions.scoreUpdate(seat.getSeatsCards()));
     }
 
-    //Implementation of HIT for split hand
-    public static void hitForSplit (Splithand hand, GameSession gameSession){
-        Log.v("Decision making", "HIT for Split");
+    // Implementation of HIT for split
+    public static void hitForSplit (SplitHand hand, GameSession gameSession){
+        Log.v("Decision making", "HIT");
+        hand.getHandsCards().add(gameSession.shoe.getRandomCard());
 
-        hand.getHandsCards().add(gameSession.shoe.getRandomeCard());
-
-        //Update total score, put list of cards to scoreUpdate methot
-        hand.setTotalScore(CoreFunctions.ScoreUpdate(hand.getHandsCards()));
-
+        // Update total score
+        hand.setTotalScore(CoreFunctions.scoreUpdate(hand.getHandsCards()));
     }
 
     // Implementation of DOUBLE DOWN
@@ -55,7 +53,7 @@ public class DecisionMaking {
         seat.setTotalBetOnSeat(seat.getTotalBetOnSeat()*2);
 
         // update total score
-        seat.setTotalScore(CoreFunctions.ScoreUpdate(seat.getSeatsCards()));
+        seat.setTotalScore(CoreFunctions.scoreUpdate(seat.getSeatsCards()));
 
     }
 
@@ -80,7 +78,7 @@ public class DecisionMaking {
 
         SplitHand handOne = new SplitHand(cardsHandOne);
         // update score for hand one
-        handOne.setTotalScore(CoreFunctions.ScoreUpdate(cardsHandOne));
+        handOne.setTotalScore(CoreFunctions.scoreUpdate(cardsHandOne));
 
         //Create hand two and deal card
         List<Card> cardsHandTwo = new ArrayList<>();
@@ -89,7 +87,7 @@ public class DecisionMaking {
         cardsHandTwo.add(gameSession.shoe.getRandomCard());
 
         SplitHand handTwo = new SplitHand(cardsHandTwo);
-        handTwo.setTotalScore(CoreFunctions.ScoreUpdate(cardsHandTwo));
+        handTwo.setTotalScore(CoreFunctions.scoreUpdate(cardsHandTwo));
 
         //Split hand object creation and add to seat
         List<SplitHand> splitHands = new ArrayList<>();

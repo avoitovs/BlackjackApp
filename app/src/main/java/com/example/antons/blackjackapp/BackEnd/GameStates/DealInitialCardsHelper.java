@@ -57,7 +57,7 @@ public class DealInitialCardsHelper {
         playersInitialCards.add(secondCard);
 
         seat.setSeatsCards(playersInitialCards);
-        seat.setTotalScore(CoreFunctions.ScoreUpdate(playersInitialCards));
+        seat.setTotalScore(CoreFunctions.scoreUpdate(playersInitialCards));
 
 
         blackJackValidation(seat);
@@ -72,7 +72,7 @@ public class DealInitialCardsHelper {
         dealerInitialCards.add(firstCard);
 
         dealer.setDealersCards(dealerInitialCards);
-        dealer.setScore(CoreFunctions.ScoreUpdate(dealerInitialCards));
+        dealer.setScore(CoreFunctions.scoreUpdate(dealerInitialCards));
 
         //offer insurance if applicable
         offerInsurance();

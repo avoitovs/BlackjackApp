@@ -25,7 +25,7 @@ public class ScoreTest {
         cards.add(new Card("QUEEN",10,true,"HEARTS"));
         cards.add(new Card("ACE",11,true,"CLUBS"));
 
-        Assert.assertEquals(21,CoreFunctions.ScoreUpdate(cards));
+        Assert.assertEquals(21,CoreFunctions.scoreUpdate(cards));
     }
     @Test
     public void testScore1 (){
@@ -35,7 +35,7 @@ public class ScoreTest {
         cards.add(new Card("ACE",11,true,"CLUBS"));
         cards.add(new Card("QUEEN",10,true,"HEARTS"));
 
-        Assert.assertEquals(12,CoreFunctions.ScoreUpdate(cards));
+        Assert.assertEquals(12,CoreFunctions.scoreUpdate(cards));
     }
     @Test
     public void testScore2 (){
@@ -44,7 +44,7 @@ public class ScoreTest {
         cards.add(new Card("ACE",11,true,"CLUBS"));
         cards.add(new Card("TWO",2,true,"SPADES"));
 
-        Assert.assertEquals(13,CoreFunctions.ScoreUpdate(cards));
+        Assert.assertEquals(13,CoreFunctions.scoreUpdate(cards));
     }
     @Test
     public void testScore3 (){
@@ -54,7 +54,7 @@ public class ScoreTest {
         cards.add(new Card("TWO",2,true,"SPADES"));
         cards.add(new Card("QUEEN",10,true,"HEARTS"));
 
-        Assert.assertEquals(13,CoreFunctions.ScoreUpdate(cards));
+        Assert.assertEquals(13,CoreFunctions.scoreUpdate(cards));
     }
     @Test
     public void testScore4 (){
@@ -64,7 +64,7 @@ public class ScoreTest {
         cards.add(new Card("TWO",2,true,"SPADES"));
         cards.add(new Card("QUEEN",10,true,"HEARTS"));
 
-        Assert.assertEquals(13,CoreFunctions.ScoreUpdate(cards));
+        Assert.assertEquals(13,CoreFunctions.scoreUpdate(cards));
     }
     @Test
     public void testScore5 (){
@@ -73,7 +73,7 @@ public class ScoreTest {
         cards.add(new Card("ACE",11,true,"CLUBS"));
         cards.add(new Card("ACE",11,true,"CLUBS"));
 
-        Assert.assertEquals(12,CoreFunctions.ScoreUpdate(cards));
+        Assert.assertEquals(12,CoreFunctions.scoreUpdate(cards));
     }
     @Test
     public void testScore6 (){
@@ -82,7 +82,7 @@ public class ScoreTest {
         cards.add(new Card("ACE",11,true,"CLUBS"));
         cards.add(new Card("ACE",11,true,"CLUBS"));
 
-        Assert.assertEquals(12,CoreFunctions.ScoreUpdate(cards));
+        Assert.assertEquals(12,CoreFunctions.scoreUpdate(cards));
     }
 
 
