@@ -1,7 +1,15 @@
 package com.example.antons.blackjackapp.BackEnd.GameStates.Decisions;
 
+import android.app.Activity;
+import android.content.Context;
+import android.view.View;
+import android.widget.Button;
+
+import com.example.antons.blackjackapp.BackEnd.GameSession;
 import com.example.antons.blackjackapp.BackEnd.Participants.Player;
 import com.example.antons.blackjackapp.BackEnd.Seat;
+import com.example.antons.blackjackapp.R;
+import com.example.antons.blackjackapp.UI.JustPlay;
 
 /**
  * This class intended to control decision flow
@@ -9,11 +17,25 @@ import com.example.antons.blackjackapp.BackEnd.Seat;
 
 public class DecisionController {
 
-    private void gameplayControler (Player player){
+    public static GameSession gameSession;
+
+    public static void gameplayControler (Player player, JustPlay justPlay){
 
         for (Seat seat:player.getPlayersSeats()) {
 
             while (seat.getTotalScore()<21){
+
+                final Button hitButton = justPlay.findViewById(R.id.hit);
+                hitButton.setOnClickListener((View view) ->{
+                    DecisionMaking.hit(seat,gameSession);
+                });
+
+
+
+
+
+
+
 
 
 
@@ -32,6 +54,10 @@ public class DecisionController {
     private boolean playerHasOnlyTwoCards(Seat seat) {
         return (seat.getSeatsCards().size() == 2);
     }
+
+
+
+
 
 
 }

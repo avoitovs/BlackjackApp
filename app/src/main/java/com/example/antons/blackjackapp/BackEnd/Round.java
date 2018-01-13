@@ -3,8 +3,10 @@ package com.example.antons.blackjackapp.BackEnd;
 import android.util.Log;
 
 import com.example.antons.blackjackapp.BackEnd.GameStates.DealInitialCardsHelper;
+import com.example.antons.blackjackapp.BackEnd.GameStates.Decisions.DecisionController;
 import com.example.antons.blackjackapp.BackEnd.Participants.Dealer;
 import com.example.antons.blackjackapp.BackEnd.Participants.Player;
+import com.example.antons.blackjackapp.UI.JustPlay;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -64,8 +66,8 @@ public class Round {
         new DealInitialCardsHelper(gameSession, player, dealer);
     }
 
-    private void makeDecisions() {
-        // logic
+    public void makeDecisions(JustPlay justPlay) {
+        DecisionController.gameplayControler(player, justPlay);
     }
 
     private void resolvingRound() {

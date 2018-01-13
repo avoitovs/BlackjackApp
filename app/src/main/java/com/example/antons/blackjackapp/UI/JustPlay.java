@@ -29,9 +29,6 @@ public class JustPlay extends AppCompatActivity {
         setContentView(R.layout.activity_just_play);
 
 
-
-
-
         // Bet placement
         final Button placeFiveEur = findViewById(R.id.bet_5_eur);
         placeFiveEur.setOnClickListener((View view) ->{
@@ -55,10 +52,26 @@ public class JustPlay extends AppCompatActivity {
 
         });
 
-        // Hit
+        // Decision making state
+        gameSession.round.makeDecisions(this);
+
+
+
+
+        final Button hitButton = findViewById(R.id.hit);
+        hitButton.setOnClickListener((View view) ->{
+
+
+        });
 
 
         // Stand
+
+
+        // DD
+
+
+        // Split
 
 
 
